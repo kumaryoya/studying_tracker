@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html data-theme="cupcake" class= "font-top  text-maincolor">
+<link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Kosugi+Maru&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/95ae21fd7d.js" crossorigin="anonymous"></script>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLLP5YDYPQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JLLP5YDYPQ');
+    </script>
+    <%= favicon_link_tag('favicon.ico') %>
+    <title>StudyingTracker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application.tailwind', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "application.tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+  <body>
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
+    <%= render 'shared/flash_message' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
+  </body>
+<html>
